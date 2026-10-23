@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dream Board</title>
+  <meta name="description" content="A quiet sky of plans and dreams, and the ones that came true.">
+  <meta name="theme-color" content="#070b1f">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="sky" class="sky" aria-hidden="true"></canvas>
+  <a class="skip" href="#dreams">Skip to dreams</a>
+
+  <header class="hero">
+    <p class="hero__eyebrow" id="owner"></p>
+    <h1 class="hero__title" id="title">Dream Board</h1>
+    <p class="hero__tagline" id="tagline"></p>
+    <p class="hero__stats" id="stats" aria-live="polite"></p>
+  </header>
+
+  <main id="main">
+    <p class="notice" id="notice" hidden></p>
+    <noscript><p class="notice">The stars need JavaScript to come out.</p></noscript>
+
+    <section class="constellation" id="constellation" aria-labelledby="sky-heading" hidden>
+      <h2 class="visually-hidden" id="sky-heading">The constellation</h2>
+      <div class="constellation__sky" id="sky-strip">
+        <svg class="constellation__lines" id="sky-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="constellation__stars" id="sky-stars" role="list"></div>
+        <p class="constellation__label" id="sky-label" aria-hidden="true" hidden></p>
+        <p class="constellation__empty" id="sky-empty" hidden>The sky is clear tonight. The first dream you name will appear here as a star.</p>
+      </div>
+      <ul class="legend" id="sky-legend" aria-label="What the stars mean">
+        <li><span class="legend__dot legend__dot--accomplished" aria-hidden="true"></span>Accomplished</li>
+        <li><span class="legend__dot legend__dot--in-progress" aria-hidden="true"></span>In progress</li>
+        <li><span class="legend__dot legend__dot--dreaming" aria-hidden="true"></span>Dreaming</li>
+      </ul>
+    </section>
+
+    <nav class="filters" id="filters" aria-label="Filter dreams" hidden>
+      <div class="filters__group" id="status-filters" role="group" aria-label="By status"></div>
+      <div class="filters__group" id="category-filters" role="group" aria-label="By category"></div>
+    </nav>
+
+    <section class="board" id="dreams" aria-labelledby="dreams-heading" hidden>
+      <div class="board__head">
+        <h2 id="dreams-heading">Dreams</h2>
+        <p class="board__sub">Still among the stars.</p>
+      </div>
+      <div class="grid" id="dreams-grid"></div>
+      <p class="board__empty" id="dreams-empty" hidden></p>
+    </section>
+
+    <section class="board board--hall" id="accomplished" aria-labelledby="hall-heading" hidden>
+      <div class="board__head">
+        <h2 id="hall-heading">Dreams made real</h2>
+        <p class="board__sub">The hall of dreams that came true.</p>
+      </div>
+      <div class="grid" id="hall-grid"></div>
+      <p class="board__empty" id="hall-empty" hidden></p>
+    </section>
+
+    <p class="board__empty board__empty--filter" id="filter-empty" hidden>Nothing under this filter yet.</p>
+
+    <section class="released" id="released" aria-labelledby="released-heading" hidden>
+      <details>
+        <summary><h2 id="released-heading">Let go</h2> <span class="released__count" id="released-count"></span></summary>
+        <p class="released__note">Plans set down with care. Letting go is part of dreaming too.</p>
+        <ul class="released__list" id="released-list"></ul>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p id="updated"></p>
+  </footer>
+
+  <canvas id="burst" class="burst" aria-hidden="true"></canvas>
+  <script src="js/app.js"></script>
+</body>
+</html>
